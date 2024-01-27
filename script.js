@@ -1,4 +1,4 @@
-//Turn pages on clicking next or prev button
+// //Turn pages on clicking next or prev button
 const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
 
 pageTurnBtn.forEach((e1, index) => {
