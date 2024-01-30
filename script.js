@@ -66,8 +66,8 @@ backProfBtn.onclick = () => {
 }
 
 //opening animation
-const coverRight = socument.querySelector('.cover.cover-right');
-const pageLeft = socument.querySelector('.book-page.page-left');
+const coverRight = document.querySelector('.cover.cover-right');
+const pageLeft = document.querySelector('.book-page.page-left');
 
 
 // opening animation - cover right
