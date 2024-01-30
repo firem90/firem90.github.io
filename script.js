@@ -19,3 +19,81 @@ pageTurnBtn.forEach((e1, index) => {
         }
     }
 })
+
+const pages = document.querySelectorAll('.book-page.page-right');
+const contactMeBtn = document.querySelector('.btn.contact-me');
+
+contactMeBtn.onclick = () => {
+    pages.forEach((page, index) => {
+        setTimeout(() => {
+            page.classList.add('turn');
+
+            setTimeout(() => {
+                page.style.zIndex = 20 + index;
+            }, 500)
+
+        }, (index + 1) * 200 + 100)
+    } )
+}
+
+// Create reverse index function
+
+let totalPages = pages.length;
+let pageNumber = 0;
+
+function reverseIndex() {
+    pageNumber--;
+    if(pageNumber < 0) {
+        pageNumber = totalPages - 1;
+    }
+}
+
+// back profile on click
+const backProfBtn = document.querySelector('.back-profile');
+
+backProfBtn.onclick = () => {
+    pages.forEach((_, index) => {
+        setTimeout(() => {
+            reverseIndex();
+            pages[pageNumber].classList.remover('turn');
+
+            setTimeout(() => {
+                reverseIndex();
+                pages[pageNumber].style.zIndex = 10 + index;
+            }, 500)
+        }, (index + 1) * 200 + 100)
+    })
+}
+
+//opening animation
+const coverRight = socument.querySelector('.cover.cover-right');
+const pageLeft = socument.querySelector('.book-page.page-left');
+
+
+// opening animation - cover right
+setTimeout(() => {
+    coverRight.classList.add('turn');
+},2100)
+
+setTimeout(() => {
+    coverRight.style.zIndex = -1;;
+},2800)
+
+// opening animation - cover left
+setTimeout(() => {
+    pageLeft.style.zIndex = -20;
+},2800)
+
+// opening animation - all page right
+pages.forEach((_, index) => {
+    setTimeout(() => {
+        reverseIndex();
+        pages[pageNumber].classList.remover('turn');
+
+        setTimeout(() => {
+            reverseIndex();
+            pages[pageNumber].style.zIndex = 10 + index;
+        }, 500)
+    }, (index + 1) * 200 + 2100)
+})
+
